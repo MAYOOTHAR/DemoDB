@@ -12,7 +12,7 @@ import com.emp.demo.Service.RoleService;
 public class RoleServiceImpl implements RoleService {
 	
 	@Autowired
- RoleRepository roleRepository;
+    RoleRepository roleRepository;
 
 	@Override
 	public Role saveRole(Role role) {
