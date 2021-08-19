@@ -8,14 +8,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import com.emp.demo.Service.EmployeeService;
-
 import com.emp.demo.Model.Employee;
 
 @RestController
@@ -41,8 +39,12 @@ public class EmployeeController {
 	@GetMapping("{id}")
 	public ResponseEntity<Employee> Employee(@PathVariable("id") long employeeId){
 		return new ResponseEntity<Employee>(employeeService.Employee(employeeId), HttpStatus.OK);
-	
 	}	
+//	@GetMapping("/name")
+//	public ResponseEntity<List<Employee>> getName(@RequestParam("name") String name) {
+//		return new ResponseEntity<List<Employee>>(employeeService.findByName(name), HttpStatus.OK);
+//	}
+	
 	@PutMapping("{id}")
 	public ResponseEntity<Employee> updateEmployee(@PathVariable("id") long id,
 			                                       @RequestBody Employee employee){
