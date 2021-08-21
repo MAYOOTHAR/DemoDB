@@ -15,15 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class City {
 
 	@Id
-	@Column(name = "city_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnore
 	private long id;
 
-	@Column(name = "city_name")
 	private String cityname;
 
-	@Column(name = "city_code")
 	private String citycode;
 	
 	public City() {
