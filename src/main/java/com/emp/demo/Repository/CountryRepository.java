@@ -7,5 +7,5 @@ import com.emp.demo.Model.Country;
 
 @Repository
 public interface CountryRepository extends JpaRepository<Country,Long>{
-          
+          Country findById(long id);
 }

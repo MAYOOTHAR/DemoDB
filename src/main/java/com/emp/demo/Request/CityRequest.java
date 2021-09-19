@@ -9,36 +9,34 @@ public class CityRequest implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private long id;
-	private String cityName;
-	private String cityCode;
+	private String name;
+	private String code;
 	private long country_id;
 
 	public CityRequest() {
 
 	}
-
-	public long getId() {
+    public long getId() {
 		return id;
 	}
-
-	public void setId(long id) {
+    public void setId(long id) {
 		this.id = id;
 	}
 
-	public String getCityName() {
-		return cityName;
+	public String getName() {
+		return name;
 	}
 
-	public void setCityName(String cityName) {
-		this.cityName = cityName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getCityCode() {
-		return cityCode;
+	public String getCode() {
+		return code;
 	}
 
-	public void setCityCode(String cityCode) {
-		this.cityCode = cityCode;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public long getCountry_id() {
@@ -49,10 +47,13 @@ public class CityRequest implements Serializable{
 		this.country_id = country_id;
 	}
 
-	@Override
-	public String toString() {
-		return "CityRequest [id=" + id + ", cityName=" + cityName + ", cityCode=" + cityCode + ", country_id="
-				+ country_id + "]";
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
-
+    @Override
+	public String toString() {
+		return "CityRequest [id=" + id + ", name=" + name + ", code=" + code + ", country_id=" + country_id + "]";
+	}
+   
+    
 }

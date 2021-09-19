@@ -24,17 +24,14 @@ public class CountryController {
 	public ResponseEntity<Country> saveCountry(@RequestBody Country country) {
 		System.out.println(country);
 		return new ResponseEntity<Country>(countryService.saveCountry(country), HttpStatus.CREATED);
-
-	}
-
+    }
 	@GetMapping()
 	public List<Country> getAllCountries() {
 		return countryService.getAllCountries();
 	}
-
-	@GetMapping("{id}")
+    @GetMapping("{id}")
 	public ResponseEntity<Country> getcountrybyId(@PathVariable("id") long countryId) {
-		return new ResponseEntity<Country>(countryService.findById(countryId), HttpStatus.OK);
+		return new ResponseEntity<Country>(countryService.findId(countryId), HttpStatus.OK);
 
 	}
 

@@ -21,7 +21,6 @@ public class CityserviceImpl implements CityService{
 	@Override
 	public List<City> getAllCities(){
 		return cityRepository.findAll();
-		
 	}
 	@Override
 	public City findById(long cityid){
@@ -36,27 +35,24 @@ public class CityserviceImpl implements CityService{
 	public City updateCity(City city, long id) {
 
 		City exitingCity = findById(city.getId());
-		exitingCity.setCityname(city.getCityname());
-		exitingCity.setCitycode(city.getCitycode());
+		exitingCity.setName(city.getName());
+		exitingCity.setCode(city.getCode());
 		cityRepository.save(exitingCity);
 		return exitingCity;
 	}
 	@Override
 	public void deleteCity(long id) {
 		cityRepository.deleteById(id);  
-		
 	}
 	@Override
 	public City saveCity(CityRequest cityrequest) {
 		System.out.println("cityrequest");
-		Country country = countryRepository.getById(cityrequest.getCountry_id());
+		Country country = countryRepository.findById(cityrequest.getCountry_id());
 		City city = new City();
-		city.setCityname(cityrequest.getCityName());
-		city.setCitycode(cityrequest.getCityCode());
+		city.setName(cityrequest.getName());
+		city.setCode(cityrequest.getCode());
 		city.setCountry(country);
 		System.out.println("city"+city);
 	    return cityRepository.save(city);
 	}
-
-	
 }

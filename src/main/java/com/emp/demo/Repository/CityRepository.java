@@ -8,6 +8,6 @@ import com.emp.demo.Model.City;
 
 @Repository
 public interface CityRepository extends JpaRepository<City,Long> {
-	@Query(value = "SELECT * from cities where city_name = ?1",nativeQuery = true)
+	@Query(value = "SELECT * from cities where name = ?1",nativeQuery = true)
 	List<City> findByName(String name);
 }

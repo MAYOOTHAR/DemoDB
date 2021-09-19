@@ -1,7 +1,7 @@
 package com.emp.demo.Model;
 
 import java.util.Set;
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,26 +14,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "countries")
-public class Country{
+public class Country {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	private String countryname;
-	
+
+	private String name;
+
 	@JsonIgnore
 	@OneToMany
 	@JoinColumn(name = "country_id")
-	private Set<City> cities;	
-	
-	public Set<City> getCities() {
-		return cities;
-	}
-
-	public void setCities(Set<City> cities) {
-		this.cities = cities;
-	}
+	private Set<City> city;
 
 	public Country() {
 	}
@@ -46,18 +38,25 @@ public class Country{
 		this.id = id;
 	}
 
-	public String getCountryname() {
-		return countryname;
+	public String getName() {
+		return name;
 	}
 
-	public void setCountryname(String countryname) {
-		this.countryname = countryname;
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Set<City> getCity() {
+		return city;
+	}
+
+	public void setCity(Set<City> city) {
+		this.city = city;
 	}
 
 	@Override
 	public String toString() {
-		return "Country [id=" + id + ", countryname=" + countryname + ", cities=" + cities + "]";
+		return "Country [id=" + id + ", name=" + name + ", city=" + city + "]";
 	}
-
-
+	
+	
 }

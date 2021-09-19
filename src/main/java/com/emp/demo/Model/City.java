@@ -1,6 +1,5 @@
 package com.emp.demo.Model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -16,27 +16,15 @@ public class City {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonIgnore
 	private long id;
-
-	private String cityname;
-
-	private String citycode;
+	private String name;
+	private String code;
 	
 	public City() {
 	}
-
 	@ManyToOne
 	@JoinColumn(name = "country_id")
 	private Country country;
-
-	public Country getCountry() {
-		return country;
-	}
-
-	public void setCountry(Country country) {
-		this.country = country;
-	}
 
 	public long getId() {
 		return id;
@@ -46,26 +34,32 @@ public class City {
 		this.id = id;
 	}
 
-	public String getCityname() {
-		return cityname;
+	public String getName() {
+		return name;
 	}
 
-	public void setCityname(String cityname) {
-		this.cityname = cityname;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getCitycode() {
-		return citycode;
+	public String getCode() {
+		return code;
 	}
 
-	public void setCitycode(String citycode) {
-		this.citycode = citycode;
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
 	}
 
 	@Override
 	public String toString() {
-		return "City [id=" + id + ", cityname=" + cityname + ", citycode=" + citycode + ", country=" + country + "]";
+		return "City [id=" + id + ", name=" + name + ", code=" + code + ", country=" + country + "]";
 	}
-	
-
 }

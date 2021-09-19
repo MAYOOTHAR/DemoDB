@@ -51,7 +51,4 @@ public class CityController {
        cityService.deleteCity(id);
        return new ResponseEntity<String>("Deleted Successfully!", HttpStatus.OK);
     }
-
-	
-
 }
